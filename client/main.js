@@ -2,6 +2,8 @@ const imageElement = document.getElementById('image');
 const imageErrorElement = document.getElementById('imageError');
 const scriptElement = document.getElementById('script');
 
+const indexLabel = document.getElementById('indexLabel');
+
 const runButton = document.getElementById('runButton');
 const previousButton = document.getElementById('previousButton');
 const nextButton = document.getElementById('nextButton');
@@ -19,6 +21,7 @@ loadData();
 function updateImage() {
     const url = call(index);
     imageElement.src = url;
+    indexLabel.textContent = index;
 }
 
 function loadData() {
