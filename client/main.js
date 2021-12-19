@@ -18,6 +18,8 @@ scriptElement.value = DEFAULT_CODE;
 
 loadData();
 
+buildScript();
+
 function updateImage() {
     const url = call(index);
     imageElement.src = url;
@@ -30,7 +32,7 @@ function loadData() {
     const iTemp = localStorage['ScriptableGallery_index'];
 
     if (sTemp && iTemp) {
-        index = iTemp;
+        index = new Number(iTemp);
         scriptElement.value = sTemp;
     }
 }
