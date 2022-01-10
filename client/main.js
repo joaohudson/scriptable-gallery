@@ -1,3 +1,5 @@
+(function(){
+
 const imageElement = document.getElementById('image');
 const imageErrorElement = document.getElementById('imageError');
 const loadingElement = document.getElementById('loading');
@@ -133,3 +135,5 @@ imageElement.onload = () => {
     clearImageError();
     clearLoading();
 }
+
+}());
