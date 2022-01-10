@@ -1,5 +1,6 @@
 const imageElement = document.getElementById('image');
 const imageErrorElement = document.getElementById('imageError');
+const loadingElement = document.getElementById('loading');
 const scriptElement = document.getElementById('script');
 
 const indexLabel = document.getElementById('indexLabel');
@@ -24,6 +25,7 @@ function updateImage() {
     const url = call(index);
     imageElement.src = url;
     indexLabel.textContent = index;
+    showLoading();
 }
 
 function loadData() {
@@ -74,6 +76,16 @@ function clearImageError(){
     imageErrorElement.style.display = 'none';
 }
 
+function showLoading(){
+    imageElement.style.display = 'none';
+    imageErrorElement.style.display = 'none';
+    loadingElement.style.display = 'block';
+}
+
+function clearLoading(){
+    loadingElement.style.display = 'none';
+}
+
 scriptElement.onkeydown = (e) => {
     if(e.key == 'Tab'){
         e.preventDefault();
@@ -114,8 +126,10 @@ previousButton.onclick = () => {
 
 imageElement.onerror = (err) => {
     showImageError();
+    clearLoading();
 }
 
 imageElement.onload = () => {
     clearImageError();
+    clearLoading();
 }
