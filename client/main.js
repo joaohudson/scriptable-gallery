@@ -88,6 +88,20 @@ function clearLoading(){
     loadingElement.style.display = 'none';
 }
 
+function nextImage(){
+    index++;
+    updateImage();
+}
+
+function previousImage(){
+    index--;
+
+    if(index < 0)
+        index = 0;
+
+    updateImage();
+}
+
 scriptElement.onkeydown = (e) => {
     if(e.key == 'Tab'){
         e.preventDefault();
@@ -112,18 +126,25 @@ runButton.onclick = async () => {
 }
 
 nextButton.onclick = () => {
-    index++;
-    updateImage();
+    nextImage();
 }
 
 previousButton.onclick = () => {
-    index--;
+    previousImage();
+}
 
-    if (index <= 0) {
-        index = 0;
+nextButton.onkeydown = previousButton.onkeydown = (e) => {
+    switch(e.key){
+        case 'ArrowRight':
+            nextImage();
+            e.preventDefault();
+            break;
+
+        case 'ArrowLeft':
+            previousImage();
+            e.preventDefault();
+            break;
     }
-
-    updateImage();
 }
 
 imageElement.onerror = (err) => {
