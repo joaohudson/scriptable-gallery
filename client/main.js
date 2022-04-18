@@ -13,7 +13,7 @@ const nextButton = document.getElementById('nextButton');
 const saveButton = document.getElementById('saveButton');
 const clearButton = document.getElementById('clearButton');
 
-const DEFAULT_CODE = '(index) => {\n\treturn \'https://scriptable-gallery.herokuapp.com/example/image\'+index+\'.png\';\n}';
+const DEFAULT_CODE = '(index) => {\n\treturn \'https://mini-google-cs.herokuapp.com/sites/scriptable-gallery/example/image\'+index+\'.png\';\n}';
 
 let index = 0;
 let call = null;
